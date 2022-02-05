@@ -1,0 +1,17 @@
+.grid-container {
+    background-color:teal;
+    display:grid;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+#grid {
+    background-color: yellow;
+    display:grid;
+    height: 350px;
+    width:350px;
+    
+}
+.item {
+    background-color:darkblue;
+}
