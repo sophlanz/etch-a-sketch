@@ -19,10 +19,27 @@ function createGrid () {
    for (let i=0;i<max;i++) {
       //create new item
     const item = document.createElement("div");
-    item.classList.add("item");
-    
-    
+    item.setAttribute("id","item");
+    //add eventlistener for changing color of divs
+    item.addEventListener("click", changeColor,false);
+  
     grid.appendChild(item);
   }
+}
+
+function changeColor () {
+  const randomColor = Math.floor(Math.random() * 1677215).toString(16);
+  this.style.backgroundColor= "#" + randomColor;
+ 
+
+}
+function restart () {
+  
+  let items = document.querySelectorAll("#item")
+  if(items) {
+    for (let i=0; i<items.length; i++) {
+      items[i].setAttribute("style", "background: darkblue");
+    }
+  } 
 }
 
