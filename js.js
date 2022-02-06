@@ -1,10 +1,11 @@
+createGrid();
 //grid-size
 function createGrid () {
     
     //get size
-  let e =  document.getElementById("size");
+  let size =  document.getElementById("range").value;
   //amount of rows/columns
-  let size = e.options[e.selectedIndex].value;
+  
   //amount of boxes
   let max = size*size;
 
@@ -20,26 +21,126 @@ function createGrid () {
       //create new item
     const item = document.createElement("div");
     item.setAttribute("id","item");
+    //create boolean to monitor if a div has an event listener already attached
+    item.setAttribute ('listener', "false");
     //add eventlistener for changing color of divs
-    item.addEventListener("click", changeColor,false);
+    //item.addEventListener("mouseover", changeColor,false);
+
   
     grid.appendChild(item);
   }
+  
 }
+function color () {
+  const modes = document.getElementById('modes')
+  const value = modes.options[modes.selectedIndex].value
+  const range = document.getElementById('range').value;
+  const size = range * range;
+  
+  const item = document.querySelectorAll('#item');
+  
+  
 
-function changeColor () {
+  if(value == "bw") {
+    
+    for (let i=0;i<size;i++) {
+      //check to see if listener is already attached
+      if(item[i].getAttribute('listener') !== "true") {
+        //add eventlistener for changing color of divs
+        item[i].addEventListener("mouseover", blackWhite,false);
+        item[i].setAttribute ('listener', "true");
+      }
+      //clone node to get rid of listeners, and replace the old one with the new one on the parent node
+      const grid = document.querySelector("#grid");
+      const newItem = item[i].cloneNode(true); 
+      newItem.addEventListener("mouseover", blackWhite,false);
+      newItem.setAttribute ('listener', "true");
+      grid.replaceChild(newItem, item[i]);
+
+      
+    }
+    
+  }
+
+  if(value == "rainbow") {
+    for (let i=0;i<size;i++) {
+      //check to see if listener is already attached
+      if(item[i].getAttribute('listener') !== "true") {
+        //add eventlistener for changing color of divs
+        item[i].addEventListener("mouseover", rainbow,false);
+        item[i].setAttribute ('listener', "true");
+      }
+      //clone node to get rid of listeners, and replace the old one with the new one on the parent node
+      const grid = document.querySelector("#grid");
+      const newItem = item[i].cloneNode(true); 
+      newItem.addEventListener("mouseover", rainbow,false);
+      newItem.setAttribute ('listener', "true");
+      grid.replaceChild(newItem, item[i]);
+
+      
+    }
+    
+  }
+  if(value == "clear") {
+    
+    restart();
+    
+  }
+  if(value == "eraser") {
+    for (let i=0;i<size;i++) {
+      //check to see if listener is already attached
+      if(item[i].getAttribute('listener') !== "true") {
+        //add eventlistener for changing color of divs
+        item[i].addEventListener("mouseover", eraser,false);
+        item[i].setAttribute ('listener', "true");
+      }
+      //clone node to get rid of listeners, and replace the old one with the new one on the parent node
+      const grid = document.querySelector("#grid");
+      const newItem = item[i].cloneNode(true); 
+      newItem.addEventListener("mouseover", eraser,false);
+      newItem.setAttribute ('listener', "true");
+      grid.replaceChild(newItem, item[i]);
+
+      
+    }
+  }
+}
+function rainbow () {
+
+ 
   const randomColor = Math.floor(Math.random() * 1677215).toString(16);
   this.style.backgroundColor= "#" + randomColor;
+  
  
 
 }
+function blackWhite () {
+  
+  const color = Math.random() < 0.5 ? "#FFFFFF" : '	#000000';
+  this.style.backgroundColor = 	color;
+  
+}
+
 function restart () {
   
   let items = document.querySelectorAll("#item")
   if(items) {
     for (let i=0; i<items.length; i++) {
-      items[i].setAttribute("style", "background: darkblue");
+      items[i].setAttribute("style", "background: white");
     }
   } 
+}
+function eraser () {
+  this.style.backgroundColor = "white";
+}
+//range slider
+let range = document.getElementById('range');
+output.innerText = range.value;
+range.oninput = function () {
+  let output = document.getElementById('output');
+  output.innerText= this.value;
+  //clear the pixels before creating new grid size
+  restart();
+  createGrid();
 }
 

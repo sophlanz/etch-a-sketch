@@ -6,12 +6,16 @@
     align-items: center;
 }
 #grid {
-    background-color: yellow;
+    background-color: white;
     display:grid;
     height: 350px;
     width:350px;
     
 }
 #item {
-    background-color:darkblue;
+    background-color:white;
+}
+#modes {
+    height: 50px;
+    width:80%;
 }

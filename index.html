@@ -14,15 +14,20 @@
             </div>
         </div>
         <div class = "tool-bar">
-            <select id = "size">
-                    <option value = "12">12 x 12 </option>
-                    <option value = "32">32 x 32</option>
-                    <option value = "64"> 64 x 64</option>
+            <div class = "slideContainer">
+                <input type = "range" min = "1" max = "100" value = "16" id= "range">
+            </div>
+            <div id = "output"> </div>
+                <select id = "modes" onchange = "color()"> 
+                    <option  id = "eraser" value = "eraser">Eraser</option>
+                    <option  id = "rainbow" value = "rainbow" >Rainbow mode</option>
+                    <option  id = "bw" value = "bw">Black and White mode</option>
+                    <option  id= "clear" value = "clear"> Clear</option>
+                    </select>
                     
-            </select>
-            <input type = "button" id = "button" value = "Submit" onclick= "createGrid()" >
-            <button type = "button" id= "clear" onclick="restart()"> Clear</button>
+                </div>
         </div>
 
     </body>
 </html>
+
