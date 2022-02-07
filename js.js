@@ -35,7 +35,9 @@ function color () {
   const modes = document.getElementById('modes')
   const value = modes.options[modes.selectedIndex].value
   const range = document.getElementById('range').value;
+  console.log(range);
   const size = range * range;
+  console.log(size);
   
   const item = document.querySelectorAll('#item');
   
@@ -135,10 +137,10 @@ function eraser () {
 }
 //range slider
 let range = document.getElementById('range');
-output.innerText = range.value;
+output.innerText = `${range.value} X ${range.value}`;
 range.oninput = function () {
   let output = document.getElementById('output');
-  output.innerText= this.value;
+  output.innerText= `${this.value} X ${this.value}`;
   //clear the pixels before creating new grid size
   restart();
   createGrid();

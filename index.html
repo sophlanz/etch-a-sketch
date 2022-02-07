@@ -5,29 +5,35 @@
         <meta name = "viewport" content = "width=device-width", initial-scale =1>
         <link rel = "stylesheet" href= "style.css">
         <script src = "js.js" defer></script>
+        <title>Etch-a-Sketch</title>
         
     </head>
     <body>
+        <div class = "top">
+        <header>Etch-a-sketch</header>
+        <p>Activate your <strong>imagination.</strong></p>
+         </div> 
+        
         <div class = "grid-container">
-            <div id = "grid">
-
-            </div>
-        </div>
-        <div class = "tool-bar">
-            <div class = "slideContainer">
-                <input type = "range" min = "1" max = "100" value = "16" id= "range">
-            </div>
-            <div id = "output"> </div>
-                <select id = "modes" onchange = "color()"> 
-                    <option  id = "eraser" value = "eraser">Eraser</option>
-                    <option  id = "rainbow" value = "rainbow" >Rainbow mode</option>
-                    <option  id = "bw" value = "bw">Black and White mode</option>
-                    <option  id= "clear" value = "clear"> Clear</option>
+            <div class = "tool-bar">
+                <div class = "slideContainer">
+                    <div id = "output"> </div>
+                    <input type = "range" min = "1" max = "100" value = "16" id= "range" onchange = "color()">
+            
+                    <select id = "modes" onchange = "color()" multiple> 
+                        <option  id = "eraser" value = "eraser">Eraser</option>
+                        <option  id = "rainbow" value = "rainbow" >Rainbow mode</option>
+                        <option  id = "bw" value = "bw">Black and White mode</option>
+                        <option  id= "clear" value = "clear"> Clear</option>
                     </select>
-                    
                 </div>
+            </div>
+            <div id = "grid"></div>
+           
         </div>
 
+       
+        <footer>Copyright Sophia Lanzendorf 2022</footer>
     </body>
 </html>
 
