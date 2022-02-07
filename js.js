@@ -1,21 +1,16 @@
 createGrid();
 //grid-size
 function createGrid () {
-    
     //get size
   let size =  document.getElementById("range").value;
   //amount of rows/columns
-  
   //amount of boxes
   let max = size*size;
-
   let grid = document.querySelector("#grid");
   //create the amount of columns indicated by the selected value
   grid.style.setProperty("grid-template-columns", 'repeat('+size+',1fr)')
   //amount of rows
  grid.style.setProperty("grid-template-rows", 'repeat(' + size + ', 1fr)')
-  
-  
   //create that number of divs in the loop
    for (let i=0;i<max;i++) {
       //create new item
@@ -23,13 +18,8 @@ function createGrid () {
     item.setAttribute("id","item");
     //create boolean to monitor if a div has an event listener already attached
     item.setAttribute ('listener', "false");
-    //add eventlistener for changing color of divs
-    //item.addEventListener("mouseover", changeColor,false);
-
-  
     grid.appendChild(item);
   }
-  
 }
 function color () {
   const modes = document.getElementById('modes')
@@ -40,9 +30,6 @@ function color () {
   console.log(size);
   
   const item = document.querySelectorAll('#item');
-  
-  
-
   if(value == "bw") {
     
     for (let i=0;i<size;i++) {
@@ -58,12 +45,8 @@ function color () {
       newItem.addEventListener("mouseover", blackWhite,false);
       newItem.setAttribute ('listener', "true");
       grid.replaceChild(newItem, item[i]);
-
-      
     }
-    
   }
-
   if(value == "rainbow") {
     for (let i=0;i<size;i++) {
       //check to see if listener is already attached
@@ -78,15 +61,10 @@ function color () {
       newItem.addEventListener("mouseover", rainbow,false);
       newItem.setAttribute ('listener', "true");
       grid.replaceChild(newItem, item[i]);
-
-      
     }
-    
   }
   if(value == "clear") {
-    
     restart();
-    
   }
   if(value == "eraser") {
     for (let i=0;i<size;i++) {
@@ -102,25 +80,16 @@ function color () {
       newItem.addEventListener("mouseover", eraser,false);
       newItem.setAttribute ('listener', "true");
       grid.replaceChild(newItem, item[i]);
-
-      
     }
   }
 }
-function rainbow () {
-
- 
+ function rainbow () {
   const randomColor = Math.floor(Math.random() * 1677215).toString(16);
   this.style.backgroundColor= "#" + randomColor;
-  
- 
-
 }
 function blackWhite () {
-  
   const color = Math.random() < 0.5 ? "#FFFFFF" : '	#000000';
   this.style.backgroundColor = 	color;
-  
 }
 
 function restart () {

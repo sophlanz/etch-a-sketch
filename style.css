@@ -53,25 +53,66 @@ header {
   overflow: hidden;
   background:transparent;
   
+  
 }
 #modes option{
     width: 250px;
     height:40px;
     font-size: 15px;
     padding: 5px 5px;
-    cursor:pointer;
     border:beige solid 2px;
     border-radius: 5px;
     color:rgb(250, 220, 149);
     display:flex;
     justify-content:center;
     align-items:center;
-    line-height: 40px;
     font-size:20px;
     margin-top:15px;
+    
+
+
    
     
   }
+  /*background of bar*/
+  .slider {
+    -webkit-appearance: none;
+    background:rgb(250, 220, 149);
+    outline: none;
+    opacity: 0.1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+   
+  }
+  
+  
+  /*icon that gets dragged*/
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: darkolivegreen;
+    cursor: pointer;
+  }
+  
+  
+  /*remove the border that appears after clicking select items*/
+  select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    
+  }
+  /*Remove the blue highlight when the option is selected*/
+  select option:checked {
+   
+    background: linear-gradient(rgb(250, 220, 149), rgb(250, 220, 149));
+    background-color: rgb(250, 220, 149) !important;
+    color: darkolivegreen;
+    opacity:.6;
+    -webkit-text-fill-color: darkolivegreen;
+}
 
 footer {
     color:rgb(250, 220, 149);
@@ -97,20 +138,20 @@ footer {
 }
 
 #range {
-    -webkit-appearance: none;
-  margin-right: 15px;
-  width: 145px;
-  height: 10px;
-  background-color: lightgoldenrodyellow;
-  border-radius: 5px;
+  margin-left:25px;
+  width: 200px;
+  height: 20px;
+  border-radius: 10px;
   border: 2px solid beige;
-  background-image: transparent;
-  opacity:.3;
-  background-size: 70% 100%;
-  background-repeat: no-repeat;
+  opacity:.6;
+  
+ 
 }
 #output {
     font-size:25px;
     color:darkolivegreen;
     text-align:center;
+    margin-bottom:10px;
+    margin-right:25px;
 }
+
