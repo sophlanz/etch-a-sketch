@@ -1,5 +1,6 @@
 # etch-a-sketch
 
+## Live Preview: https://sophlanz.github.io/etch-a-sketch/
 ## Description
 Etch a sketch game gone digital, create a beautiful picture, or simply have fun. 
 
